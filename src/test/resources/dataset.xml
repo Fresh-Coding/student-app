@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+	<level id="1" level="level1" description="description1" />
+	<level id="2" level="level2" description="description2" />
+	<level id="3" level="level3" description="description3" />
+
+
+</dataset>

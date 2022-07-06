@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+	http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+    http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+
+	<bean id="happyBirthdayTask" class="in.app.student.schedular.HappyBirthdayTask"/>
+
+
+
+
+	<bean name="happyBirthdayJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="name" value="HappyBirthdayJob" />
+		<property name="group" value="group1" />
+		<property name="jobClass" value="in.app.student.schedular.HappyBirthdayJob" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="happyBirthdayTask" value-ref="happyBirthdayTask" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="happyBirthdayJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="happyBirthdayJob" />
+		<property name="cronExpression" value="0 0/1 * 1/1 * ? *" />
+	</bean>
+
+
+
+	<bean id="stdScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="jobDetails">
+			<list>
+				<ref bean="happyBirthdayJob"/>
+			</list>
+		</property>
+
+		<property name="triggers">
+			<list>
+				<ref bean="happyBirthdayJobTrigger"/>
+			</list>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+   <!-- <beans:bean id="mailSender1" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <beans:property name="host" value="${donotreply.hostname1}"/>
+        <beans:property name="port" value="${donotreply.port1}"/>
+        <beans:property name="username" value="${donotreply.username1}"/>
+        <beans:property name="password" value="${donotreply.pwd1}"/>
+        <beans:property name="javaMailProperties">
+            <beans:props>
+                <beans:prop key="mail.smtp.auth">${donotreply.smtpauth1}</beans:prop>
+                <beans:prop key="mail.debug">${donotreply.debug1}</beans:prop>
+                <beans:prop key="mail.mime.charset">${donotreply.charset1}</beans:prop>
+                <beans:prop key="mail.smtp.starttls.enable">${donotreply.smtp_starttls_enable1}</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>-->
+
+
+    
+</beans:beans>	
